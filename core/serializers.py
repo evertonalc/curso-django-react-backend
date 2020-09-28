@@ -8,6 +8,8 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'name', 'done']
 
 class ListSerializer(serializers.HyperlinkedModelSerializer):
+    item_set = ItemSerializer(many=True)
+
     class Meta:
         item_set = ItemSerializer(many=True)
         model = List
